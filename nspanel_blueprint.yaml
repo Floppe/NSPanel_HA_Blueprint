@@ -2453,8 +2453,8 @@ variables:
   # # flame_pic_off: "60"
   # top_menu_blank: "60"
 
-
-
+  weather_wind_direction_set: ['North','North-East','East','South-East','South','South-West','West','North-West','North']
+  weather_wind_arrow_set: ["\U0000E05C","\U0000E05B","\U0000E053","\U0000E042","\U0000E044","\U0000E041","\U0000E04C","\U0000E05A","\U0000E05C"]
 
   weather_sunny: "2"
   weather_cloudy: "3"
@@ -2518,6 +2518,11 @@ variables:
   weather_icon_protect: "\U0000F05C" #F05C
   weather_icon_lightning: "\U0000E592" #E592
   weather_icon_wind: "\U0000E59C"  #E59C
+
+  weather_icon_humidity: "\U0000E595"  #E595
+  weather_icon_precipitation: "\U0000E595"  #E595
+  weather_icon_flag: "\U0000E23F"  # E23F - flag variant
+  weather_icon_preassure: "\U0000E299"  # E299 - gauage
 
 ##### CHANGE ME END ##########################################################################################################
 
@@ -6370,14 +6375,38 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 1 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value01
+                            message: '{{ state_attr(weather_entity,"pressure") | round(0)}} {{state_attr(weather_entity,"pressure_unit")}}'
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value01_icon
+                            message: "{{ weather_icon_preassure }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 2 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value02
+                            message: "{{ state_attr(weather_entity,'humidity') }} %"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value02_icon
+                            message: "{{ weather_icon_humidity }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 3 #####
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather01.value03
-                            message: '{{state_attr(weather_entity,"wind_speed") | round(0)}} km/h'
+                            message: '{{state_attr(weather_entity,"wind_speed") | round(1)}} {{state_attr(weather_entity,"wind_speed_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
@@ -6388,6 +6417,24 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 4 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value04
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"wind_bearing") | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_direction_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather01.value04_icon
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"wind_bearing") | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_arrow_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 5 #####
 
@@ -6612,18 +6659,30 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 1 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather02.value01
+                            message: "{{ state_attr(weather_entity,'forecast')[0].precipitation_probability}} %"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather02.value01_icon
+                            message: "{{ weather_icon_precipitation }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 2 #####
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather02.value02
-                            message: '{{state_attr(weather_entity,"forecast")[0].precipitation| round(1)}} mm'
+                            message: '{{state_attr(weather_entity,"forecast")[0].precipitation| round(1)}} {{state_attr(weather_entity,"precipitation_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather02.value02_icon
-                            message: "{{ weather_icon_rain }}"
+                            message: "{{ weather_icon_precipitation }}"
                         - delay:
                             milliseconds: "{{ delay_value }}"
 
@@ -6631,7 +6690,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather02.value03
-                            message: '{{state_attr(weather_entity,"forecast")[0].wind_speed | round(1)}} km/h'
+                            message: '{{state_attr(weather_entity,"forecast")[0].wind_speed | round(1)}} {{state_attr(weather_entity,"wind_speed_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
@@ -6642,6 +6701,24 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 4 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather02.value04
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[0].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_direction_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather02.value04_icon
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[0].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_arrow_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 5 #####
 
@@ -6865,6 +6942,18 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 1 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather03.value01
+                            message: "{{ state_attr(weather_entity,'forecast')[1].precipitation_probability}} %"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather03.value01_icon
+                            message: "{{ weather_icon_precipitation }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 2 #####
                         - service: "{{ command_text_printf }}"
@@ -6876,7 +6965,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather03.value02_icon
-                            message: "{{ weather_icon_rain }}"
+                            message: "{{ weather_icon_precipitation }}"
                         - delay:
                             milliseconds: "{{ delay_value }}"
 
@@ -6884,7 +6973,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather03.value03
-                            message: '{{state_attr(weather_entity,"forecast")[1].wind_speed | round(1)}} km/h'
+                            message: '{{state_attr(weather_entity,"forecast")[1].wind_speed | round(1)}} {{state_attr(weather_entity,"wind_speed_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
@@ -6895,6 +6984,24 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 4 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather03.value04
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[1].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_direction_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather03.value04_icon
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[1].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_arrow_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 5 #####
 
@@ -7118,6 +7225,18 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 1 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather04.value01
+                            message: "{{ state_attr(weather_entity,'forecast')[2].precipitation_probability}} %"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather04.value01_icon
+                            message: "{{ weather_icon_precipitation }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 2 #####
                         - service: "{{ command_text_printf }}"
@@ -7129,7 +7248,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather04.value02_icon
-                            message: "{{ weather_icon_rain }}"
+                            message: "{{ weather_icon_precipitation }}"
                         - delay:
                             milliseconds: "{{ delay_value }}"
 
@@ -7137,7 +7256,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather04.value03
-                            message: '{{state_attr(weather_entity,"forecast")[2].wind_speed | round(1)}} km/h'
+                            message: '{{state_attr(weather_entity,"forecast")[2].wind_speed | round(1)}} {{state_attr(weather_entity,"wind_speed_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
@@ -7148,6 +7267,24 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 4 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather04.value04
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[2].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_direction_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather04.value04_icon
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[2].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_arrow_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 5 #####
 
@@ -7371,6 +7508,18 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 1 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather05.value01
+                            message: "{{ state_attr(weather_entity,'forecast')[3].precipitation_probability}} %"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather05.value01_icon
+                            message: "{{ weather_icon_precipitation }}"
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 2 #####
                         - service: "{{ command_text_printf }}"
@@ -7382,7 +7531,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather05.value02_icon
-                            message: "{{ weather_icon_rain }}"
+                            message: "{{ weather_icon_precipitation }}"
                         - delay:
                             milliseconds: "{{ delay_value }}"
 
@@ -7390,7 +7539,7 @@ action:
                         - service: "{{ command_text_printf }}"
                           data:
                             component: weather05.value03
-                            message: '{{state_attr(weather_entity,"forecast")[3].wind_speed | round(1)}} km/h'
+                            message: '{{state_attr(weather_entity,"forecast")[3].wind_speed | round(1)}} {{state_attr(weather_entity,"wind_speed_unit")}}'
                         - delay:
                             milliseconds: "{{ delay_value }}"
                         - service: "{{ command_text_printf }}"
@@ -7401,6 +7550,24 @@ action:
                             milliseconds: "{{ delay_value }}"
 
                         ##### field 4 #####
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather05.value04
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[3].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_direction_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
+                        - service: "{{ command_text_printf }}"
+                          data:
+                            component: weather05.value04_icon
+                            message: >-
+                              {% set degree = state_attr(weather_entity,"forecast")[3].wind_bearing | round(0) %}
+                              {% set direction = ((degree + 22.5) / 45)|int %}
+                              {{ weather_wind_arrow_set[direction] }}
+                        - delay:
+                            milliseconds: "{{ delay_value }}"
 
                         ##### field 5 #####
 
