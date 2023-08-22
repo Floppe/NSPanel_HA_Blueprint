@@ -257,6 +257,34 @@ api:
             id(notification_text).publish_state("");
         - switch.turn_off: notification_unread
 
+    ##### Service to flash a notification for a short time #####
+    - service: notification_flash
+      variables:
+        label: string
+        text: string
+        duration: int
+      then:
+        - wait_until:
+            binary_sensor.is_on: nextion_init
+        - lambda: |-
+            id(disp1).send_command_printf("page notification");
+            id(disp1).set_component_text_printf("notification.notifi_label", "%s", label.c_str());
+            id(disp1).set_component_text_printf("notification.notifi_text01", "%s", text.c_str());
+            id(notification_label).publish_state(label.c_str());
+            id(notification_text).publish_state(text.c_str());
+            id(page_timeout_disabled).publish_state(1);
+        - switch.turn_on: notification_unread
+        - delay: !lambda return duration * 1000;
+        - lambda: |-
+            DynamicJsonDocument doc(1024);
+            deserializeJson(doc, id(disp1_nspanel_event).state);
+            std::string page = doc["page"];
+            id(notification_label).publish_state("");
+            id(notification_text).publish_state("");
+            id(page_timeout_disabled).publish_state(0);
+            if (page != "home") id(disp1).send_command_printf("page home");
+        - switch.turn_off: notification_unread
+
     ##### Service to open information for settings-page(s)
     - service: open_entity_settings_page
       variables:
@@ -1300,6 +1328,20 @@ number:
     step: 1
     restore_value: true
     optimistic: true
+
+  ##### page timeout disabled #####
+  - platform: template
+    name: ${device_name} Page Timeout Disabled
+    id: page_timeout_disabled
+    entity_category: config
+    optimistic: true
+    restore_value: false
+    internal: true
+    step: 1
+    min_value: 0
+    max_value: 1
+    initial_value: 0
+
 
 ##### START - DISPLAY START CONFIGURATION #####
 display:
