@@ -544,6 +544,24 @@ api:
               id(disp1).set_component_text_printf(ent_id.c_str(), "%s", ent_value.c_str());
               if (strcmp(ent_value_xcen.c_str(), "0") != 0) id(disp1).send_command_printf("%s", entxcen.c_str());
 
+      #### Service to set the energy entities ####
+      - service: set_energy_entity
+        variables:
+          ent_id: string
+          ent_label: string
+          ent_color: int
+          ent_value: string
+          ent_value_xcen: string
+        then:
+          - lambda: |-
+              std::string entlabel = ent_id.c_str() + std::string("_label");
+              std::string entxcen = ent_id.c_str() + std::string(".xcen=") + ent_value_xcen.c_str();
+              id(disp1).set_component_text_printf(entlabel.c_str(), "%s", ent_label.c_str());
+              id(disp1).set_component_text_printf(ent_id.c_str(), "%s", ent_value.c_str());
+              if (strcmp(ent_value_xcen.c_str(), "0") != 0) id(disp1).send_command_printf("%s", entxcen.c_str());
+              id(disp1).set_component_font_color(ent_id.c_str(), ent_color);
+              id(disp1).set_component_font_color(entlabel.c_str(), ent_color);
+
       #### Service to populate the page Home #####
       - service: page_home
         variables:
@@ -557,6 +575,9 @@ api:
           entities_pages_icon: string
           entities_pages_icon_color: int[]
           alarm_state: string
+          energy_pages: bool
+          energy_pages_icon: string
+          energy_pages_icon_color: int[]
         then:
           - lambda: |-
               // Notification button
@@ -579,6 +600,11 @@ api:
               // Alarm button
               id(disp1).send_command_printf("is_alarm=%i", (alarm_state == "" or alarm_state.empty()) ? 0 : 1);
               id(update_alarm_icon).execute("home.bt_alarm", alarm_state.c_str());
+
+              // Energy pages button
+              id(disp1).send_command_printf("is_energy=%i", (energy_pages) ? 1 : 0);
+              id(disp1).set_component_text_printf("home.bt_energy", "%s", energy_pages_icon.c_str());
+              id(set_component_color).execute("home.bt_energy", energy_pages_icon_color, {});
 
       #### Service to populate the page Settings #####
       - service: page_settings
@@ -1154,6 +1180,8 @@ select:
       - entitypage02
       - entitypage03
       - entitypage04
+      - energypage01
+      - energypage02
       - qrcode
       - alarm
     initial_option: home
@@ -2358,6 +2386,8 @@ script:
             else if (id(wakeup_page_name).state == "entitypage02") wakeup_page_id = 19;
             else if (id(wakeup_page_name).state == "entitypage03") wakeup_page_id = 20;
             else if (id(wakeup_page_name).state == "entitypage04") wakeup_page_id = 21;
+            else if (id(wakeup_page_name).state == "energypage01") wakeup_page_id = 27;
+            else if (id(wakeup_page_name).state == "energypage02") wakeup_page_id = 28;
             else if (id(wakeup_page_name).state == "qrcode") wakeup_page_id = 17;
             else if (id(wakeup_page_name).state == "alarm") wakeup_page_id = 23;
             id(disp1).set_component_value("orign", wakeup_page_id);

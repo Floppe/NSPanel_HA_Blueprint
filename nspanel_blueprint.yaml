@@ -1030,6 +1030,311 @@ blueprint:
             default: [200, 204, 200] #52857 Grey super light
             selector: *color-selector
 
+    ##### Energy pages #####
+      ##### Energy pages - Config #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder20:
+            name: ' '
+            description: '# ✅ ENERGY CONFIGURATION ✅ '
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energypages_enabled:
+            name: Activate energy page - TRUE/FALSE (Optional)
+            default: false
+            description: >
+              *SYSTEM settings*
+
+              *Activate energy page and energy page Button on the home page*
+            selector:
+              boolean:
+          home_button_energy_icon:
+            name: Energy - ICON (Optional)
+            description: >
+              *HOME page*
+
+              *Icon which should be displayed (Default mdi:solar-power-variant-outline)*
+            default: mdi:solar-power-variant-outline
+            selector: *icon-selector
+          home_button_energy_icon_color:
+            name: Energy page - ICON COLOR (Optional)
+            description: >
+              *HOME page*
+
+              *Icon color which should be displayed (default color is set)*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+      ##### Energy pages - Icons #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder106:
+            name: ' '
+            description: '# ✅ ENERGY ICONS ✅ '
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energy_home_icon:
+            name: Energy Home - ICON (Optional)
+            description: >
+              *Energy pages
+
+              *Icon which sould be displayed for home on all energy pages*
+            default: mdi:home
+            selector: *icon-selector
+          energy_grid_icon:
+            name: Energy Grid - ICON (Optional)
+            description: >
+              *Energy pages
+
+              *Icon which sould be displayed for grid on all energy pages*
+            default: mdi:transmission-tower
+            selector: *icon-selector
+          energy_solar_icon:
+            name: Energy Solar - ICON (Optional)
+            description: >
+              *Energy pages
+
+              *Icon which sould be displayed for solar production on all energy pages*
+            default: mdi:solar-power-variant-outline
+            selector: *icon-selector
+          energy_water_icon:
+            name: Energy Water - ICON (Optional)
+            description: >
+              *Energy pages
+
+              *Icon which sould be displayed for water on all energy pages*
+            default: mdi:water
+            selector: *icon-selector
+          energy_wind_icon:
+            name: Energy Wind - ICON (Optional)
+            description: >
+              *Energy pages
+
+              *Icon which sould be displayed for wind on all energy pages*
+            default: mdi:wind-turbine
+            selector: *icon-selector
+      ##### Energy page 01 - Energy #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder107:
+            name: ' '
+            description: '# ✅ ENERGY PAGE 01 ✅'
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energy_page01_label:
+            name: Energy page 01 name - LABEL (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label which should be displayed*
+            default: Instant Power
+            selector:
+              text: {}
+          energy_current_solar_production:
+            name: Solar Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your solar production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_wind_production:
+            name: Wind Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_water_consumption:
+            name: Water Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_consumption:
+            name: Grid Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your grid consumption sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_consumption_label_color:
+            name: Grid Consumption - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+          energy_current_grid_return:
+            name: Grid Return Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your grid return sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_return_label_color:
+            name: Grid Return - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+          energy_current_value01:
+            name: Sensor 01 - ENTITY (Optional)
+            description: >
+              *EnergyPage01**
+
+              *Entity which should be displayed*
+            default: []
+            selector: *entity_sensor-selector
+          energy_current_value01_label_color:
+            name: Sensor 01 - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+          energy_current_value02:
+            name: Sensor 02 - ENTITY (Optional)
+            description: >
+              *EnergyPage01**
+
+              *Entity which should be displayed*
+            default: []
+            selector: *entity_sensor-selector
+          energy_current_value02_label_color:
+            name: Sensor 02 - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+          energy_current_value03:
+            name: Sensor 03 - ENTITY (Optional)
+            description: >
+              *EnergyPage01**
+
+              *Entity which should be displayed*
+            default: []
+            selector: *entity_sensor-selector
+          energy_current_value03_label_color:
+            name: Sensor 03 - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+      ##### Energy page 02 - Energy #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder108:
+            name: ' '
+            description: '# ✅ ENERGY PAGE 02 ✅'
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energy_page02_label:
+            name: Energy page 02 name - LABEL (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Label which should be displayed*
+            default: Energy Consumption
+            selector:
+              text: {}
+          energy_page02_value01_label:
+            name: Value 01 - LABEL (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Label which should be displayed*
+            default: []
+            selector:
+              text: {}
+          energy_page02_value01:
+            name: Value 01 - Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Sensor which should be displayed*
+            default: []
+            selector:
+              entity:
+          energy_solar_production:
+            name: Solar Production Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Choose your solar production sensor*
+            default: []
+            selector:
+              entity:
+          energy_wind_production:
+            name: Wind Production Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_water_consumption:
+            name: Water Consumption Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Choose your water consumption sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_consumption:
+            name: Grid Consumption Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Choose your grid return sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_consumption_label_color:
+            name: Grid Consumption - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+          energy_grid_return:
+            name: Grid Return Sensor (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Choose your return to grid sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_return_label_color:
+            name: Grid Return - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage02*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200] #52857 Grey super light
+            selector: *color-selector
+
     ##### Button pages #####
       ##### Button page 01 #####
         ##### PLACEHOLDER ######################################################################
@@ -3642,6 +3947,7 @@ variables:
       set_climate: 'esphome.{{ nspanel_name }}_set_climate'
       set_component_color: 'esphome.{{ nspanel_name }}_set_component_color'
       set_entity: 'esphome.{{ nspanel_name }}_set_entity'
+      set_energy_entity: 'esphome.{{ nspanel_name }}_set_energy_entity'
       show: 'esphome.{{ nspanel_name }}_send_command_show'
       show_all: 'esphome.{{ nspanel_name }}_send_command_show_all'
       text_printf: 'esphome.{{ nspanel_name }}_send_command_text_printf'
@@ -3727,6 +4033,9 @@ variables:
       - "entitypage02"
       - "entitypage03"
       - "entitypage04"
+    energypages:
+      - "energypage01"
+      - "energypage02"
     alarm: "alarm"
     keyb_num: "keyb_num"
     media_player: "media_player"
@@ -5734,6 +6043,17 @@ variables:
     {% endif %}
   temperature_units: "°"
 
+  ###### ENERGY ######
+  ### Instant / Current ###
+  energy_current_grid_consumption: !input 'energy_current_grid_consumption'
+  energy_current_grid_return: !input 'energy_current_grid_return'
+  ### Daily Consumption ###
+  energy_grid_consumption: !input 'energy_grid_consumption'
+  energy_grid_return: !input 'energy_grid_return'
+  ### Icons ###
+  energy_icon_to_grid: ''
+  energy_icon_from_grid: ''
+
   ##### Climate page #####
   page_climate:
     buttons:
@@ -6159,6 +6479,75 @@ trigger:
       entity_id: !input 'entities_entity32'
       id: trigger_entitypage04
 
+  ##### Trigger - Energy pages - State change ###############################################################################################
+    ### Current ###
+    - alias: energy_current_wind
+      platform: state
+      entity_id: !input 'energy_current_wind_production'
+      id: trigger_energypage01
+
+    - alias: energy_current_water
+      platform: state
+      entity_id: !input 'energy_current_water_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_current_solar
+      platform: state
+      entity_id: !input 'energy_current_solar_production'
+      id: trigger_energypage01
+
+    - alias: energy_current_grid_consume
+      platform: state
+      entity_id: !input 'energy_current_grid_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_current_grid_return
+      platform: state
+      entity_id: !input 'energy_current_grid_return'
+      id: trigger_energypage01
+
+    - alias: energy_current_value01
+      platform: state
+      entity_id: !input 'energy_current_value01'
+      id: trigger_energypage01
+
+    - alias: energy_current_value02
+      platform: state
+      entity_id: !input 'energy_current_value02'
+      id: trigger_energypage01
+
+    - alias: energy_current_value03
+      platform: state
+      entity_id: !input 'energy_current_value03'
+      id: trigger_energypage01
+
+    ### Daily Consumption ###
+
+    - alias: energy_wind_production
+      platform: state
+      entity_id: !input 'energy_wind_production'
+      id: trigger_energypage02
+
+    - alias: energy_water_consumption
+      platform: state
+      entity_id: !input 'energy_water_consumption'
+      id: trigger_energypage02
+
+    - alias: energy_solar_production
+      platform: state
+      entity_id: !input 'energy_solar_production'
+      id: trigger_energypage02
+
+    - alias: energy_grid_consumption
+      platform: state
+      entity_id: !input 'energy_grid_consumption'
+      id: trigger_energypage02
+
+    - alias: energy_grid_return
+      platform: state
+      entity_id: !input 'energy_grid_return'
+      id: trigger_energypage02
+
   ##### Trigger - Home - Chips - State change #################################################################################################################
     ##### Chip 01 - Trigger 'chip01_state' #####
     - platform: event
@@ -6528,6 +6917,10 @@ action:
                     color_rgb: !input 'home_button05_icon_color'
                     title: !input 'qrcode_label'
                     qrcode: !input 'qrcode_value'
+                  bt_energy:
+                    enabled: !input 'energypages_enabled'
+                    icon: !input 'home_button_energy_icon'
+                    color_rgb: !input 'home_button_energy_icon_color'
 
               - &variables-date_time
                 variables:
@@ -6571,6 +6964,14 @@ action:
                       if alarm is string and alarm | length > 0
                       else ""
                     }}
+                  energy_pages: '{{ bt_energy.enabled }}'
+                  energy_pages_icon: >
+                    {{
+                      all_icons[bt_energy.icon.split(":")[1]] | default(bt_energy.icon
+                      if bt_energy.icon is string
+                      else all_icons["format-list-bulleted-square"])
+                    }}
+                  energy_pages_icon_color: '{{ [ bt_energy.color_rgb ] if is_number(bt_energy.color_rgb) else bt_energy.color_rgb }}'
                 continue_on_error: true
               - &delay-default
                 delay:
@@ -8416,6 +8817,298 @@ action:
                                         ent_value_xcen: '{{ entitypages_value_alignment }}'
                                       continue_on_error: true
 
+                      ## PAGE ENERGY 01
+                      - alias: Energy page 01
+                        conditions: '{{ nspanel_event.page == page.energypages[0] }}'
+                        sequence: &refresh_page_energy01
+                          #- &variables-energypage01-elements
+                          - variables:
+                              page_label: !input 'energy_page01_label'
+                              elements:
+                                - icon: !input 'energy_solar_icon'
+                                  entity: !input 'energy_current_solar_production'
+                                  component: solar
+                                - icon: !input 'energy_wind_icon'
+                                  entity: !input 'energy_current_wind_production'
+                                  component: wind
+                                - icon: !input 'energy_water_icon'
+                                  entity: !input 'energy_current_water_consumption'
+                                  component: water
+                                - icon: !input 'energy_grid_icon'
+                                  entity: !input 'energy_current_grid_consumption'
+                                  label_color_rgb: !input 'energy_current_grid_consumption_label_color'
+                                  component: grid
+                                  # special case
+                                  to_grid_entity: !input 'energy_current_grid_return'
+                                  to_grid_label_color_rgb: !input 'energy_current_grid_return_label_color'
+                                - icon: !input 'energy_home_icon'
+                                  entity: !input 'energy_current_grid_consumption'
+                                  component: home
+                          ### Label ###
+                          - if: '{{ page_label |length > 0 }}'
+                            then:
+                              - *delay-default
+                              - service: '{{ nextion.command.text_printf }}'
+                                data:
+                                  component: 'energypage01.label'
+                                  message: '{{ page_label }}'
+                                continue_on_error: true
+                          ### Elements ###
+                          - *delay-default
+                          - repeat:
+                              for_each: '{{ elements }}'
+                              sequence:
+                                - if: '{{ repeat.item.entity is defined and repeat.item.entity is string and repeat.item.entity | length > 0 }}'
+                                  then:
+                                    - variables:
+                                        repeat_item_icon: '{{ repeat.item.icon }}'
+                                        repeat_item_component: 'energypage01.{{ repeat.item.component }}'
+                                        repeat_item_uom_org: '{{ state_attr(repeat.item.entity, "unit_of_measurement") }}'
+                                        repeat_item_uom: 'kW'
+                                        # TODO: handle water also "L"
+                                        repeat_item_value: '{{ states(repeat.item.entity)|float if repeat_item_uom_org == "kW" else (states(repeat.item.entity)|float) * 0.001 }}'
+                                    #
+                                    # TODO FIXME: Possible to add and subtract a total?
+                                    #             home value should be all production - all consumption
+                                    #
+                                    ### Icons ###
+                                    - service: '{{ nextion.command.text_printf }}'
+                                      data:
+                                        component: '{{ repeat_item_component }}_icon'
+                                        message: >
+                                          {% if repeat_item_icon | length > 0 %}
+                                            {{
+                                              all_icons[repeat_item_icon.split(":")[1]] | default(all_icons.unknown)
+                                              if repeat_item_icon.split(":") | count > 0
+                                              else repeat_item_icon
+                                            }}
+                                          {% else %}{{ nextion.icon.domain.unknown }}
+                                          {% endif %}
+                                      continue_on_error: true
+                                    ### Value ###
+                                    - *delay-default
+                                    - service: '{{ nextion.command.text_printf }}'
+                                      data:
+                                        component: '{{ repeat_item_component }}'
+                                        message: '{{ "%0.2f" | format(repeat_item_value) }} {{ repeat_item_uom }}'
+                                      continue_on_error: true
+                                    ### Font color ###
+                                    - if: '{{ repeat.item.label_color_rgb is defined }}'
+                                      then:
+                                        - *delay-default
+                                        - service: '{{ nextion.command.set_component_color }}'
+                                          data:
+                                            component: '{{ repeat_item_component }}'
+                                            foreground: '{{ [ repeat.item.label_color_rgb ] if is_number(repeat.item.label_color_rgb) else repeat.item.label_color_rgb }}'
+                                            background: []
+                                    # Special case (return to grid)
+                                    - if: '{{ repeat.item.to_grid_entity is defined }}'
+                                      then:
+                                        - *delay-default
+                                        - variables:
+                                            special_uom_org: '{{ state_attr(repeat.item.to_grid_entity, "unit_of_measurement") }}'
+                                            special_uom: 'kW'
+                                            special_value: '{{ states(repeat.item.to_grid_entity) if repeat_item_uom_org == "kW" else (states(repeat.item.to_grid_entity)|float) * 0.001 }}'
+                                        - service: '{{ nextion.command.text_printf }}'
+                                          data:
+                                            component: 'energypage01.to_grid'
+                                            message: '{{ "%.2f" | format(special_value) }} {{ special_uom }}'
+                                        - *delay-default
+                                        - service: '{{ nextion.command.set_component_color }}'
+                                          data:
+                                            component: 'energypage01.to_grid'
+                                            foreground: '{{ [ repeat.item.to_grid_label_color_rgb ] if is_number(repeat.item.to_grid_label_color_rgb) else repeat.item.to_grid_label_color_rgb }}'
+                                            background: []
+                          ### Grid ###
+                          ### Grid return ###
+                          - if: '{{ energy_current_grid_return is defined and energy_current_grid_return is string and energy_current_grid_return | length > 0 }}'
+                            then:
+                              ### Icon ###
+                              - service: '{{ nextion.command.text_printf }}'
+                                data:
+                                  component: to_grid_icon
+                                  message: "{{ energy_icon_to_grid }}"
+                                continue_on_error: true
+                          ### Grid consumption ###
+                          - if: '{{ energy_current_grid_consumption is defined and energy_current_grid_consumption is string and energy_current_grid_consumption | length > 0 }}'
+                            then:
+                              ### Icon ###
+                              - service: "{{ nextion.command.text_printf }}"
+                                data:
+                                  component: from_grid_icon
+                                  message: "{{ energy_icon_from_grid }}"
+                                continue_on_error: true
+                          ### Value 01-03
+                          - &variables-energypage01_values
+                            variables:
+                              energy_page_values:
+                                - entity: !input 'energy_current_value01'
+                                  label_color_rgb: !input 'energy_current_value01_label_color'
+                                  page: energypage01
+                                  component: value01
+                                - entity: !input 'energy_current_value02'
+                                  label_color_rgb: !input 'energy_current_value02_label_color'
+                                  page: energypage01
+                                  component: value02
+                                - entity: !input 'energy_current_value03'
+                                  label_color_rgb: !input 'energy_current_value03_label_color'
+                                  page: energypage01
+                                  component: value03
+                          - repeat:
+                              for_each: '{{ energy_page_values }}'
+                              sequence:
+                                - if: '{{ repeat.item.entity is string and repeat.item.entity is match "sensor." and has_value(repeat.item.entity) }}'
+                                  then:
+                                    - variables:
+                                        repeat_item_state: '{{ states(repeat.item.entity, rounded=true) | default("unavailable") }}'
+                                        repeat_item_state_available: '{{ repeat_item_state not in ["unavailable", "unknown", "", None] }}'
+                                        repeat_item_icon: >
+                                          {% if repeat.item.icon is string and repeat.item.icon | length > 0 %}
+                                            {{
+                                              all_icons[repeat.item.icon.split(":")[1]] | default(all_icons.unknown)
+                                              if repeat.item.icon.split(":") | count > 0
+                                              else repeat.item.icon
+                                            }}
+                                          {% elif state_attr(repeat.item.entity, "icon") | default("") not in ["unavailable", "unknown", "", None] %}
+                                            {{ all_icons[state_attr(repeat.item.entity, "icon").split(":")[1]] | default(None) }}
+                                          {% endif %}
+                                        repeat_item_color: >
+                                          {{
+                                            repeat.item.label_color_rgb
+                                            if is_number(repeat.item.label_color_rgb)
+                                            else ((repeat.item.label_color_rgb[0] //(2**3)) *(2**11))+((repeat.item.label_color_rgb[1] //(2**2)) *(2**5))+(repeat.item.label_color_rgb[2] //(2**3))
+                                          }}
+                                    - condition: '{{ repeat_item_state_available }}'
+                                    ### LABEL Font Color ###
+                                    - service: '{{ nextion.command.set_energy_entity }}'
+                                      data:
+                                        ent_id: '{{ repeat.item.page }}.{{ repeat.item.component }}'
+                                        ent_label: >-
+                                          {%- if repeat.item.name | length > 0 -%} {{ repeat.item.name }}
+                                          {%- elif repeat_item_state in ["unavailable", "unknown", "", None] -%} {{ repeat.item.entity }}
+                                          {%- else -%} {{ state_attr(repeat.item.entity, "friendly_name") | default(mui[language].no_name) }}
+                                          {%- endif -%}
+                                        ent_color: '{{ repeat_item_color }}'
+                                        ent_value: '{{ repeat_item_state ~ ((state_attr(repeat.item.entity, "unit_of_measurement") | default("")) if state_attr(repeat.item.entity, "unit_of_measurement") is string else "") }}'
+                                        ent_value_xcen: '2'
+                                      continue_on_error: true
+
+                      ## PAGE ENERGY 02
+                      - alias: Energy page 02
+                        conditions: '{{ nspanel_event.page == page.energypages[1] }}'
+                        sequence: &refresh_page_energy02
+                          - variables:
+                              page_label: !input 'energy_page02_label'
+                              elements:
+                                - icon: !input 'energy_solar_icon'
+                                  entity: !input 'energy_solar_production'
+                                  component: solar
+                                - icon: !input 'energy_wind_icon'
+                                  entity: !input 'energy_wind_production'
+                                  component: wind
+                                - icon: !input 'energy_water_icon'
+                                  entity: !input 'energy_water_consumption'
+                                  component: water
+                                - icon: !input 'energy_grid_icon'
+                                  entity: !input 'energy_grid_consumption'
+                                  label_color_rgb: !input 'energy_grid_consumption_label_color'
+                                  component: grid
+                                  # special case
+                                  to_grid_entity: !input 'energy_grid_return'
+                                  to_grid_label_color_rgb: !input 'energy_grid_return_label_color'
+                                - icon: !input 'energy_home_icon'
+                                  entity: !input 'energy_grid_consumption'
+                                  component: home
+                          ### Label ###
+                          - if: '{{ page_label |length > 0 }}'
+                            then:
+                              - service: "{{ nextion.command.text_printf }}"
+                                data:
+                                  component: "energypage02.label"
+                                  message: "{{ page_label }}"
+                          ### Elements ###
+                          - *delay-default
+                          - repeat:
+                              for_each: '{{ elements }}'
+                              sequence:
+                                - if: '{{ repeat.item.entity is defined and repeat.item.entity is string and repeat.item.entity | length > 0 }}'
+                                  then:
+                                    - variables:
+                                        repeat_item_icon: '{{ repeat.item.icon }}'
+                                        repeat_item_component: 'energypage02.{{ repeat.item.component }}'
+                                        repeat_item_value: '{{ states(repeat.item.entity) }}'
+                                        repeat_item_uom: '{{ state_attr(repeat.item.entity, "unit_of_measurement") }}'
+                                    #
+                                    # TODO FIXME: Possible to add and subtract a total?
+                                    #             home value should be all production - all consumption
+                                    #
+                                    ### Icons ###
+                                    - service: '{{ nextion.command.text_printf }}'
+                                      data:
+                                        component: '{{ repeat_item_component }}_icon'
+                                        message: >
+                                          {% if repeat_item_icon | length > 0 %}
+                                            {{
+                                              all_icons[repeat_item_icon.split(":")[1]] | default(all_icons.unknown)
+                                              if repeat_item_icon.split(":") | count > 0
+                                              else repeat_item_icon
+                                            }}
+                                          {% else %}{{ nextion.icon.domain.unknown }}
+                                          {% endif %}
+                                      continue_on_error: true
+                                    ### Value ###
+                                    - *delay-default
+                                    - service: '{{ nextion.command.text_printf }}'
+                                      data:
+                                        component: '{{ repeat_item_component }}'
+                                        message: '{{ repeat_item_value }} {{ repeat_item_uom }}'
+                                      continue_on_error: true
+                                    ### Font color ###
+                                    - if: '{{ repeat.item.label_color_rgb is defined }}'
+                                      then:
+                                        - *delay-default
+                                        - service: '{{ nextion.command.set_component_color }}'
+                                          data:
+                                            component: '{{ repeat_item_component }}'
+                                            foreground: '{{ [ repeat.item.label_color_rgb ] if is_number(repeat.item.label_color_rgb) else repeat.item.label_color_rgb }}'
+                                            background: []
+                                    # Special case (return to grid)
+                                    - if: '{{ repeat.item.to_grid_entity is defined }}'
+                                      then:
+                                        - *delay-default
+                                        - variables:
+                                            special_uom: '{{ state_attr(repeat.item.to_grid_entity, "unit_of_measurement") }}'
+                                            special_value: '{{ states(repeat.item.to_grid_entity) }}'
+                                        - service: '{{ nextion.command.text_printf }}'
+                                          data:
+                                            component: 'energypage02.to_grid'
+                                            message: '{{ special_value }} {{ special_uom }}'
+                                        - *delay-default
+                                        - service: '{{ nextion.command.set_component_color }}'
+                                          data:
+                                            component: 'energypage02.to_grid'
+                                            foreground: '{{ [ repeat.item.to_grid_label_color_rgb ] if is_number(repeat.item.to_grid_label_color_rgb) else repeat.item.to_grid_label_color_rgb }}'
+                                            background: []
+                          ### Grid ###
+                          ### Grid return ###
+                          - if: '{{ energy_current_grid_return is defined and energy_current_grid_return is string and energy_current_grid_return | length > 0 }}'
+                            then:
+                              ### Icon ###
+                              - service: '{{ nextion.command.text_printf }}'
+                                data:
+                                  component: to_grid_icon
+                                  message: "{{ energy_icon_to_grid }}"
+                                continue_on_error: true
+                          ### Grid consumption ###
+                          - if: '{{ energy_current_grid_consumption is defined and energy_current_grid_consumption is string and energy_current_grid_consumption | length > 0 }}'
+                            then:
+                              ### Icon ###
+                              - service: "{{ nextion.command.text_printf }}"
+                                data:
+                                  component: from_grid_icon
+                                  message: "{{ energy_icon_from_grid }}"
+                                continue_on_error: true
+
                       ## PAGE WEATHER (WEATHER01 to WEATHER05) ##
                       - alias: Weather pages
                         conditions: '{{ nspanel_event.page in page.weatherpages }}'
@@ -9182,6 +9875,7 @@ action:
             conditions:
               - '{{ page.current in page.buttonpages }}'
               - '{{ page.current in [page.light, page.cover, page.climate, page.fan, page.alarm] }}'
+
         sequence:
           - choose:
               - alias: "Button pages"
@@ -9253,6 +9947,23 @@ action:
                   | list
                 }}
               sequence: *update-entity_page_entity
+
+      ##### update energy pages #####
+      - alias: 'Update energy page 01'
+        conditions:
+          - condition: trigger
+            id:
+              - trigger_energypage01
+          - '{{ page.current == page.energypages[0] }}'
+        sequence: *refresh_page_energy01
+
+      - alias: 'update energy page 02'
+        conditions:
+          - condition: trigger
+            id:
+              - trigger_energypage02
+          - '{{ page.current == page.energypages[1] }}'
+        sequence: *refresh_page_energy02
 
       ##### UPDATE CLIMATE PAGE VALUES #####
       - alias: 'Update climate page values'
