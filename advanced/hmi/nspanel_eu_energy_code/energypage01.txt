@@ -1,0 +1,396 @@
+Page energypage01
+    Attributes
+        ID                 : 0
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Locked             : no
+        Swide up page ID   : disabled
+        Swide down page ID : disabled
+        Swide left page ID : disabled
+        Swide right page ID: disabled
+    
+    Events
+        Preinitialize Event
+            if(api==0)
+            {
+                page home
+            }else
+            {
+                sendme
+            }
+        
+        Touch Press Event
+            printh 91
+            prints "touchevent",0
+            printh 00
+            prints rand,0
+            printh FF FF FF
+        
+        Touch Release Event
+            printh 91
+            prints "touchevent",0
+            printh 00
+            prints rand,0
+            printh FF FF FF
+        
+Text solar
+    Attributes
+        ID                 : 4
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text water
+    Attributes
+        ID                 : 5
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text page_index
+    Attributes
+        ID                 : 6
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 20
+    
+Text wind
+    Attributes
+        ID                 : 9
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text home
+    Attributes
+        ID                 : 10
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text daily_grid_sel
+    Attributes
+        ID                 : 11
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text daily_grid_buy
+    Attributes
+        ID                 : 12
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text grid
+    Attributes
+        ID                 : 14
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text home_heat
+    Attributes
+        ID                 : 18
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text home_tap
+    Attributes
+        ID                 : 19
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text home_daily
+    Attributes
+        ID                 : 20
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text daily_solar
+    Attributes
+        ID                 : 21
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text generator
+    Attributes
+        ID                 : 23
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text daily_water
+    Attributes
+        ID                 : 24
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 10
+    
+Text unavailable
+    Attributes
+        ID                 : 25
+        Scope              : local
+        Dragging           : 0
+        Send Component ID  : disabled
+        Associated Keyboard: none
+        Text               : 
+        Max. Text Size     : 1
+    
+Slider solar_slider1
+    Attributes
+        ID               : 1
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Position         : 38
+        Upper range limit: 39
+        Lower range limit: 0
+    
+Slider grid_slider
+    Attributes
+        ID               : 13
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Position         : 15
+        Upper range limit: 123
+        Lower range limit: 0
+    
+Slider solar_slider2
+    Attributes
+        ID               : 16
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Position         : 27
+        Upper range limit: 27
+        Lower range limit: 0
+    
+Slider grid_slider2
+    Attributes
+        ID               : 17
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        Position         : 15
+        Upper range limit: 76
+        Lower range limit: 0
+    
+Button button_back
+    Attributes
+        ID               : 22
+        Scope            : local
+        Dragging         : 0
+        Send Component ID: disabled
+        State            : unpressed
+        Text             : î…˜
+        Max. Text Size   : 3
+    
+    Events
+        Touch Press Event
+            page home
+        
+Timer swipestore
+    Attributes
+        ID         : 3
+        Scope      : local
+        Period (ms): 50
+        Enabled    : no
+    
+    Events
+        Timer Event
+            swipex=tch0
+            swipey=tch1
+        
+Timer wakeup_timer
+    Attributes
+        ID         : 7
+        Scope      : local
+        Period (ms): 100
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            if(dim<brightness)
+            {
+                dimdelta=brightness-dim
+                dimdelta/=10
+                if(dimdelta<1)
+                {
+                    dimdelta=1
+                }
+                dim+=dimdelta
+            }else
+            {
+                wakeup_timer.en=0
+            }
+        
+Timer tm_solar
+    Attributes
+        ID         : 8
+        Scope      : local
+        Period (ms): 400
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            // slider1 goes from max (sun) to min
+            // slider2 goes from min to max (house)
+            if(solar_slider1.val==solar_slider1.maxval&&solar_slider2.val<solar_slider2.maxval)
+            {
+                // slider1 at the sun, waiting for slider2 to finish
+                solar_slider2.val++
+                if(solar_slider2.val==solar_slider2.maxval)
+                {
+                    // start slider1
+                    solar_slider1.val--
+                }
+            }else if(solar_slider1.val>solar_slider1.minval)
+            {
+                // slider2 at the house, waiting for slider1 to finish
+                solar_slider1.val--
+                if(solar_slider1.val==solar_slider1.minval)
+                {
+                    // jump back to the sun
+                    solar_slider1.val=solar_slider1.maxval
+                    // start slider2
+                    solar_slider2.val=solar_slider2.minval
+                }
+            }
+        
+Timer tm_grid
+    Attributes
+        ID         : 15
+        Scope      : local
+        Period (ms): 150
+        Enabled    : yes
+    
+    Events
+        Timer Event
+            if(direction_grid==0)
+            {
+                if(grid_slider.val>grid_slider.minval)
+                {
+                    grid_slider.val--
+                }else
+                {
+                    grid_slider.val=grid_slider.maxval
+                }
+                if(grid_slider2.val<grid_slider2.maxval)
+                {
+                    grid_slider2.val++
+                }else
+                {
+                    grid_slider2.val=grid_slider2.minval
+                }
+            }else
+            {
+                if(grid_slider.val<grid_slider.maxval)
+                {
+                    grid_slider.val++
+                }else
+                {
+                    grid_slider.val=grid_slider.minval
+                }
+                if(grid_slider2.val>grid_slider2.minval)
+                {
+                    grid_slider2.val--
+                }else
+                {
+                    grid_slider2.val=grid_slider2.maxval
+                }
+            }
+        
+TouchCap swipe
+    Attributes
+        ID   : 2
+        Scope: local
+        Value: 0
+    
+    Events
+        Touch Press Event
+            swipestore.en=1 // Start swipestore timer
+        
+        Touch Release Event
+            swipestore.en=0
+            // Touch has ended, x
+            if(tch0==0)
+            {
+                swipec=swipex-tch2
+                // From Left to Right
+                if(swipec>swipedx)
+                {
+                    //page energypage03
+                }
+                // Right to Left
+                swipec2=0-swipedx
+                if(swipec<swipec2)
+                {
+                    //page energypage01
+                }
+            }
+            // Touch has ended, y
+            if(tch1==0)
+            {
+                swipec=swipey-tch3
+                // From Up to Down
+                if(swipec>100)
+                {
+                    //page
+                }
+                // Down to Up
+                swipec2=0-swipedy
+                if(swipec<-100)
+                {
+                    //page
+                }
+            }
+        
