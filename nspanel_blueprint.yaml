@@ -1,5 +1,5 @@
 #######################################################################################################
-##### NSPANEL Blueprint created by Blackymas - https://github.com/Blackymas/NSPanel_HA_Blueprint  #####
+##### NSPANEL Blueprint created by Blackymas - https://github.com/Floppe/NSPanel_HA_Blueprint/energy  #####
 ##### Blueprint                                                                                   #####
 ##### PLEASE only make changes if it is necessary and also the required knowledge is available.   #####
 ##### For normal use with the Blueprint, no changes are necessary.                                #####
@@ -21,24 +21,24 @@ blueprint:
     The goal was to create a version that allows everyone to use the NSPanel fully local without having to deal with programming or reading hours of documentation - *AND YES WE DID IT!!!!* ;)
 
 
-    📕 Full documentation and installation video is available here: [NSPanel Configuration, Setup and HowTo](https://github.com/Blackymas/NSPanel_HA_Blueprint/wiki).
+    📕 Full documentation and installation video is available here: [NSPanel Configuration, Setup and HowTo](https://github.com/Floppe/NSPanel_HA_Blueprint/energy/wiki).
 
 
     📌 Step by Step - [Setup Video](https://www.youtube.com/watch?v=3afPFg6kUdc)
 
 
-    🚀 How to create "Issues" when I have a problem: [WIKI HowTo](https://github.com/Blackymas/NSPanel_HA_Blueprint/wiki)
+    🚀 How to create "Issues" when I have a problem: [WIKI HowTo](https://github.com/Floppe/NSPanel_HA_Blueprint/energy/wiki)
 
 
-    ⭐ All Feature Requests can be found here: [All Feature Request](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/new%20feature%20request)
+    ⭐ All Feature Requests can be found here: [All Feature Request](https://github.com/Floppe/NSPanel_HA_Blueprint/energy/labels/new%20feature%20request)
 
 
-    🎉 Roadmap can be found here: [Roadmap](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/roadmap)
+    🎉 Roadmap can be found here: [Roadmap](https://github.com/Floppe/NSPanel_HA_Blueprint/energy/labels/roadmap)
 
 
-    ℹ️ Version: v4.2.7dev
+    ℹ️ Version: v4.2.7pow
 
-  source_url: https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/nspanel_blueprint.yaml
+  source_url: https://github.com/Floppe/NSPanel_HA_Blueprint/energy/blob/main/nspanel_blueprint.yaml
   domain: automation
   homeassistant:
     min_version: 2023.12.0
@@ -1234,6 +1234,207 @@ blueprint:
               *Choose a color for the button's display text.*
             default: [200, 204, 200]  # 52857 Grey super light
             selector: *color_selector
+
+    ##### Energy pages #####
+      ##### Energy pages - Config #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder20:
+            name: ' '
+            description: '# ✅ ENERGY CONFIGURATION ✅ '
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energypages_enabled:
+            name: Activate energy page - TRUE/FALSE (Optional)
+            default: false
+            description: >
+              *SYSTEM settings*
+
+              *Activate energy page and energy page Button on the home page*
+            selector:
+              boolean:
+          home_button_energy_icon:
+            name: Energy - ICON (Optional)
+            description: >
+              *HOME page*
+
+              *Icon which should be displayed (Default mdi:solar-power-variant-outline)*
+            default: mdi:solar-power-variant-outline
+            selector: *icon-selector
+          home_button_energy_icon_color:
+            name: Energy page - ICON COLOR (Optional)
+            description: >
+              *HOME page*
+
+              *Icon color which should be displayed (default color is set)*
+            default: [200, 204, 200]  # 52857 Grey super light
+            selector: *color_selector
+      ##### Energy page 01 - Energy #####
+        ##### PLACEHOLDER ######################################################################
+          placeholder22:
+            name: ' '
+            description: '# ✅ ENERGY PAGE 01 ✅ CURRENT'
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energy_current_solar_production:
+            name: Solar Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your solar production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_wind_production:
+            name: Wind Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_generator_production:
+            name: Generator Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_water_consumption:
+            name: Water Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your water Consumption sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_consumption:
+            name: Grid Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your grid consumption sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_consumption_label_color:
+            name: Grid Consumption - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200]  # 52857 Grey super light
+            selector: *color_selector
+          energy_current_grid_return:
+            name: Grid Return Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your grid return sensor*
+            default: []
+            selector:
+              entity:
+          energy_current_grid_return_label_color:
+            name: Grid Return - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200]  # 52857 Grey super light
+            selector: *color_selector
+        ##### PLACEHOLDER ######################################################################
+          placeholder23:
+            name: ' '
+            description: '# ✅ ENERGY PAGE 01 ✅ DAILY'
+            default: ' '
+            selector: *placeholder-selector
+        ##### PLACEHOLDER ######################################################################
+          energy_solar_production:
+            name: Solar Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your solar production sensor*
+            default: []
+            selector:
+              entity:
+          energy_wind_production:
+            name: Wind Production Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your wind production sensor*
+            default: []
+            selector:
+              entity:
+          energy_water_consumption:
+            name: Water Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your water consumption sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_consumption:
+            name: Grid Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your grid return sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_consumption_label_color:
+            name: Grid Consumption - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200]  # 52857 Grey super light
+            selector: *color_selector
+          energy_grid_return:
+            name: Grid Return Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your return to grid sensor*
+            default: []
+            selector:
+              entity:
+          energy_grid_return_label_color:
+            name: Grid Return - LABEL COLOR (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Label color which should be displayed*
+            default: [200, 204, 200]  # 52857 Grey super light
+            selector: *color_selector
+
+          energy_daily_heat_consumption:
+            name: Daily Heat Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your daily heat consumption sensor*
+            default: []
+            selector:
+              entity:
+
+          energy_daily_tap_water_consumption:
+            name: Daily Tap Water Consumption Sensor (Optional)
+            description: >
+              *EnergyPage01*
+
+              *Choose your daily tap water consumption sensor*
+            default: []
+            selector:
+              entity:
 
     ##### Button pages #####
       ##### Button pages - Config #####
@@ -3375,7 +3576,7 @@ trigger_variables:
 
 variables:
   ##### GENERAL #####
-  blueprint_version: '4.2.7dev'
+  blueprint_version: '4.2.7pow'
   date_format_temp: !input 'date_format'
   # Avoid breaking change for existing users with legacy type format
   date_format: '{{ date_format_temp if date_format_temp not in ["%d.%m", "%d/%m", "%-d/%-m", "%-m/%-d"] else "%A, " ~ date_format_temp }}'
@@ -3566,6 +3767,8 @@ variables:
       - "entitypage02"
       - "entitypage03"
       - "entitypage04"
+    energypages:
+      - "energypage01"
     alarm: "alarm"
     keyb_num: "keyb_num"
     media_player: "media_player"
@@ -6453,6 +6656,59 @@ trigger:
       entity_id: !input 'entities_entity32'
       id: trigger_entitypage04
 
+  ##### Trigger - Energy pages - State change ###############################################################################################
+    ### Current ###
+    - alias: energy_current_wind
+      platform: state
+      entity_id: !input 'energy_current_wind_production'
+      id: trigger_energypage01
+
+    - alias: energy_current_water
+      platform: state
+      entity_id: !input 'energy_current_water_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_current_solar
+      platform: state
+      entity_id: !input 'energy_current_solar_production'
+      id: trigger_energypage01
+
+    - alias: energy_current_grid_consume
+      platform: state
+      entity_id: !input 'energy_current_grid_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_current_grid_return
+      platform: state
+      entity_id: !input 'energy_current_grid_return'
+      id: trigger_energypage01
+
+    ### Daily ###
+    - alias: energy_wind_production
+      platform: state
+      entity_id: !input 'energy_wind_production'
+      id: trigger_energypage01
+
+    - alias: energy_water_consumption
+      platform: state
+      entity_id: !input 'energy_water_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_solar_production
+      platform: state
+      entity_id: !input 'energy_solar_production'
+      id: trigger_energypage01
+
+    - alias: energy_grid_consumption
+      platform: state
+      entity_id: !input 'energy_grid_consumption'
+      id: trigger_energypage01
+
+    - alias: energy_grid_return
+      platform: state
+      entity_id: !input 'energy_grid_return'
+      id: trigger_energypage01
+
   ##### Trigger - Home - Chips - State change #################################################################################################################
     ##### Chip 01 - Trigger 'chip01_state' #####
     - platform: event
@@ -7025,6 +7281,10 @@ action:
                     color_rgb: !input 'home_button05_icon_color'
                     title: !input 'qrcode_label'
                     qrcode: !input 'qrcode_value'
+                  bt_energy:
+                    enabled: !input 'energypages_enabled'
+                    icon: !input 'home_button_energy_icon'
+                    color_rgb: !input 'home_button_energy_icon_color'
 
               - &variables-date_time
                 variables:
@@ -7082,7 +7342,15 @@ action:
                       if bt_entities.icon is string
                       else all_icons["format-list-bulleted-square"])
                     }}
-                  entities_pages_icon_color: '{{ bt_entities.color_rgb }}'
+                  entities_pages_icon_color: '{{ [ bt_entities.color_rgb ] if is_number(bt_entities.color_rgb) else bt_entities.color_rgb }}'
+                  energy_pages: '{{ bt_energy.enabled }}'
+                  energy_pages_icon: >
+                    {{
+                      all_icons[bt_energy.icon.split(":")[1]] | default(bt_energy.icon
+                      if bt_energy.icon is string
+                      else all_icons["format-list-bulleted-square"])
+                    }}
+                  energy_pages_icon_color: '{{ [ bt_energy.color_rgb ] if is_number(bt_energy.color_rgb) else bt_energy.color_rgb }}'
                 continue_on_error: true
               - &delay-default
                 delay:
@@ -9012,6 +9280,123 @@ action:
                                     ent_value_xcen: '{{ entitypages_value_alignment }}'
                                   continue_on_error: true
 
+                      ## PAGE ENERGY 01
+                      - alias: Energy page 01
+                        conditions: '{{ nspanel_event.page == page.energypages[0] }}'
+                        sequence: &refresh_page_energy01
+                          #- &variables-energypage01-elements
+                          - variables: # current production and consumption
+                              solar: !input 'energy_current_solar_production'
+                              wind: !input 'energy_current_wind_production'
+                              #generator: !input 'energy_current_generator_production'
+                              grid_consumption: !input 'energy_current_grid_consumption'
+                              grid_return: !input 'energy_current_grid_return'
+                          - variables: # convert to kW and float
+                              # TODO: calc!
+                              solar: '{{ states(solar)|float(0) }}'
+                              #wind: '{{ states(wind)|float(0) if wind is defined }}'
+                              #generator: '{{ states(generator)|float(0) if generator is defined }}'
+                              grid_consumption: '{{ states(grid_consumption)|float(0) * 0.001 }}'
+                              grid_return: '{{ states(grid_return)|float(0) * 0.001 }}'
+                          - variables: # daily
+                              daily_solar: !input 'energy_solar_production'
+                              daily_grid_consumption: !input 'energy_grid_consumption'
+                              daily_grid_return: !input 'energy_grid_return'
+                          - variables: # sanitize
+                              daily_solar: '{{ states(daily_solar)|float(0) }}'
+                              daily_grid_consumption: '{{ states(daily_grid_consumption)|float(0) }}'
+                              daily_grid_return: '{{ states(daily_grid_return)|float(0) }}'
+                          - variables: # grid colors
+                              grid_buy_label_color: !input 'energy_current_grid_consumption_label_color'
+                              grid_sell_label_color: !input 'energy_current_grid_return_label_color'
+                          - variables: # direction
+                              grid_direction: '{{ 1 if grid_return > 0 else 0 }}'
+                          - variables:
+                              elements:
+                                ### current
+                                - entity: !input 'energy_current_solar_production'
+                                  component: solar
+                                - entity: !input 'energy_current_wind_production'
+                                  component: wind
+                                - entity: !input 'energy_current_generator_production'
+                                  component: generator
+                                - math: '{{ grid_return if grid_return > 0 else grid_consumption }}'
+                                  component: grid
+                                  label_color_rgb: '{{ grid_sell_label_color if grid_return > 0 else grid_buy_label_color }}'
+                                - math: '{{ solar + grid_consumption - grid_return }}'
+                                  component: home
+                                # water
+                                - entity: !input 'energy_current_water_consumption'
+                                  component: water
+                                  water: true
+                                ### daily
+                                - math: '{{ daily_solar }}'
+                                  component: daily_solar
+                                - math: '{{ daily_solar + daily_grid_consumption - daily_grid_return }}'
+                                  component: home_daily
+                                  energy: true
+                                - entity: !input 'energy_grid_consumption'
+                                  component: daily_grid_buy
+                                  label_color_rgb: !input 'energy_grid_consumption_label_color'
+                                  energy: true
+                                - entity: !input 'energy_grid_return'
+                                  component: daily_grid_sel
+                                  label_color_rgb: !input 'energy_grid_return_label_color'
+                                  energy: true
+                                - entity: !input 'energy_daily_heat_consumption'
+                                  component: home_heat
+                                  energy: true
+                                - entity: !input 'energy_daily_tap_water_consumption'
+                                  component: home_tap
+                                  energy: true
+                                # water
+                                - entity: !input 'energy_water_consumption'
+                                  component: daily_water
+                                  water: true
+                          ### Elements ###
+                          - *delay-default
+                          - repeat:
+                              for_each: '{{ elements }}'
+                              sequence:
+                                - if: '{{ repeat.item.entity is defined and repeat.item.entity is string and repeat.item.entity | length > 0 or repeat.item.math is defined }}'
+                                  then:
+                                    - variables:
+                                        repeat_item_component: 'energypage01.{{ repeat.item.component }}'
+                                        repeat_item_uom_org: '{{ state_attr(repeat.item.entity, "unit_of_measurement") if repeat.item.entity is defined }}'
+                                        repeat_item_uom: '{{ "L" if repeat.item.water is defined else "kWh" if repeat.item.energy is defined else "kW" }}'
+# yamllint disable rule:line-length
+                                        repeat_item_value: >
+                                          {% if repeat.item.math is defined %}
+                                          {{ repeat.item.math }}
+                                          {% elif repeat.item.entity is defined %}
+                                          {{ states(repeat.item.entity)|float if repeat_item_uom_org == "kW" or repeat.item.energy is defined or repeat.item.water is defined else (states(repeat.item.entity)|float) * 0.001 }}
+                                          {% endif %}
+# yamllint enable rule:line-length
+                                        fmt: '{{ "%0.1f" if repeat.item.energy is defined or repeat.item.water is defined else "%0.2f" }}'
+                                    - variables:
+                                        repeat_item_value: '{{ fmt|format(repeat_item_value) if repeat_item_value is number else repeat_item_value }}'
+                                    ### Value ###
+                                    - *delay-default
+                                    - service: '{{ nextion.command.text_printf }}'
+                                      data:
+                                        component: '{{ repeat_item_component }}'
+                                        message: '{{ repeat_item_value }} {{ repeat_item_uom }}'
+                                      continue_on_error: true
+                                    ### Font color ###
+                                    - if: '{{ repeat.item.label_color_rgb is defined }}'
+                                      then:
+                                        - *delay-default
+                                        - service: '{{ nextion.command.set_component_color }}'
+                                          data:
+                                            component: '{{ repeat_item_component }}'
+                                            foreground: '{{ [ repeat.item.label_color_rgb ] if is_number(repeat.item.label_color_rgb) else repeat.item.label_color_rgb }}'
+                          # direction
+                          - *delay-default
+                          - service: '{{ nextion.command.printf }}'
+                            data:
+                              cmd: 'direction_grid={{ grid_direction }}'
+                            continue_on_error: true
+
                       ## PAGE WEATHER (WEATHER01 to WEATHER05) ##
                       - alias: Weather pages
                         conditions: '{{ nspanel_event.page in page.weatherpages }}'
@@ -9998,6 +10383,15 @@ action:
                   | list
                 }}
               sequence: *update_entity_page_entity
+
+      ##### update energy pages #####
+      - alias: 'Update energy page 01'
+        conditions:
+          - condition: trigger
+            id:
+              - trigger_energypage01
+          - '{{ page.current == page.energypages[0] }}'
+        sequence: *refresh_page_energy01
 
       ##### UPDATE CLIMATE PAGE VALUES #####
       - alias: 'Update climate page values'

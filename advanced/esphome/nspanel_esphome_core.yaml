@@ -18,7 +18,7 @@ substitutions:
   friendly_name: ${device_name}
   wifi_timeout: '15'
   ##### DON'T CHANGE THIS ######
-  version: "4.2.7dev"
+  version: "4.2.7pow"
   ##############################
 
 ##### External components #####
@@ -561,6 +561,9 @@ api:
         entities_pages: bool
         entities_pages_icon: string
         entities_pages_icon_color: int[]
+        energy_pages: bool
+        energy_pages_icon: string
+        energy_pages_icon_color: int[]
       then:
         - lambda: |-
             if (not id(is_uploading_tft)) {
@@ -580,6 +583,9 @@ api:
               ESP_LOGV(TAG, "entities_pages:                  %s", YESNO(entities_pages));
               ESP_LOGV(TAG, "entities_pages_icon:             %s", entities_pages_icon.c_str());
               ESP_LOGV(TAG, "entities_pages_icon_color:       %i", entities_pages_icon_color.size());
+              ESP_LOGV(TAG, "energy_pages:                    %s", YESNO(energy_pages));
+              ESP_LOGV(TAG, "energy_pages_icon:               %s", energy_pages_icon.c_str());
+              ESP_LOGV(TAG, "energy_pages_icon_color:         %i", energy_pages_icon_color.size());
 
               // Localization
               ESP_LOGV(TAG, "Load localization");
@@ -631,6 +637,11 @@ api:
               disp1->set_component_text_printf("home.bt_entities", "%s", entities_pages_icon.c_str());
               //set_component_color->execute("home.bt_entities", entities_pages_icon_color);
               set_component_color->execute("home.bt_entities", entities_pages_icon_color);
+
+              // Energy pages button
+              disp1->send_command_printf("is_energy=%i", (energy_pages) ? 1 : 0);
+              disp1->set_component_text_printf("home.bt_energy", "%s", energy_pages_icon.c_str());
+              set_component_color->execute("home.bt_energy", energy_pages_icon_color);
 
               blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 1));
             }
@@ -959,7 +970,8 @@ globals:
         "alarm",
         "keyb_num",
         "media_player",
-        "confirm"
+        "confirm",
+        "energypage01"
       }'
 
   - id: framework
@@ -1309,6 +1321,7 @@ select:
       - entitypage02
       - entitypage03
       - entitypage04
+      - energypage01
       - home
       - qrcode
     initial_option: home
@@ -2226,6 +2239,7 @@ script:
           else if (page == "entitypage02") page_entitypage02->execute();
           else if (page == "entitypage03") page_entitypage03->execute();
           else if (page == "entitypage04") page_entitypage04->execute();
+          else if (page == "energypage01") page_energypage01->execute();
           else if (page == "fan") page_fan->execute();
           else if (page == "home") page_home->execute();
           else if (page == "keyb_num") page_keyb_num->execute();
@@ -2284,6 +2298,18 @@ script:
       - script.execute:
           id: page_entitypage
           page_number: 4
+
+  - id: page_energypage
+    mode: restart
+    parameters:
+      page_number: uint
+    then:  # There's nothing here so far
+  - id: page_energypage01
+    mode: restart
+    then:
+      - script.execute:
+          id: page_energypage
+          page_number: 1
 
   - id: page_fan
     mode: restart
@@ -2946,6 +2972,8 @@ script:
           page_entitypage03->stop();
           page_entitypage04->stop();
           page_entitypage->stop();
+          page_energypage01->stop();
+          page_energypage->stop();
           page_fan->stop();
           page_home->stop();
           page_keyb_num->stop();
